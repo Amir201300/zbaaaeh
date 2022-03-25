@@ -52,4 +52,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Order','user_id');
     }
 
+
+    public function adresses(){
+        return $this->hasMany(User_addresses::class,'user_id');
+    }
 }
