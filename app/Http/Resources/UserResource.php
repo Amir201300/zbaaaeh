@@ -20,13 +20,13 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'phone' => $this->phone,
             'email' => $this->email,
-            'username' => $this->username,
+            'name' => $this->name,
             'status' => (int)$this->status,
             'social'=>(int)$this->social,
-            'gender'=>(int)$this->gender,
-            'firstName'=>$this->firstName,
-            'lastName'=>$this->lastName,
-            'image' => getImageUrl('users',$this->image),
+            'password_code'=>(int)$this->password_code,
+            'active_code'=>(int)$this->active_code,
+            'wallet'=>$this->wallet,
+            'image' => getImageUrl('User',$this->image),
             'token' => $this->user_token,
         ];
     }

@@ -15,11 +15,12 @@ class CreateUserAddressesTable extends Migration
     {
         Schema::create('user_addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username')->nullable();
             $table->string('area_name')->nullable();
             $table->string('bldg_num')->nullable();
             $table->string('apt_num')->nullable();
             $table->string('other_info')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

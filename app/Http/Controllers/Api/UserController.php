@@ -88,7 +88,7 @@ class UserController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function my_info(Request $request)
     {
@@ -114,7 +114,7 @@ class UserController extends Controller
         $user->password_code=$code;
         $user->save();
         $lang=$user->lang;
-        send_email_with_code($user,2,'forget_password');
+        forgetPasswordEmail($user);
         $token = $user->createToken('TutsForWeb')->accessToken;
         $user['user_token']=$token;
         $msg=$lang=='en' ? 'code sent to your email' : 'تم ارسال كود اعادة كلمة السر الي بريدك الالكتروني';
@@ -209,21 +209,23 @@ class UserController extends Controller
         $msg = $lang == 'ar' ? 'تم تسجيل الخروج بنجاح' : 'logout successfully';
         return $this->apiResponseMessage(1, $msg, 200);
     }
-/**
- *
- */
+    /**
+     *
+     */
     public function resend_code(Request $request){
         $user=Auth::user();
-        if($request->check ==1)
-            $user->active_code=1234;
-        if($request->check ==2) {
-            $code=mt_rand(999,9999);
-            $user->password_code = $code;
-            send_email_with_code($user,$code,'forget_password');
+        $code=mt_rand(999,9999);
+        if($request->check ==1) {
+            $user->active_code = $code;
+            $user->save();
+            verifyEmail($user);
         }
-        $user->save();
+        if($request->check ==2) {
+            $user->password_code = $code;
+            $user->save();
+            forgetPasswordEmail($user);
+        }
         $msg=get_user_lang()=='en' ? 'code sent to your email' : 'تم ارسال الكود الي بريدك الالكتروني';
         return $this->apiResponseData(new UserResource($user),$msg,200);
     }
-
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c75b0131-6e21-459a-b3da-5293dfc6acf0" name="zbaaeh" url="http://ahmeds.club">
+        <fileTransfer rootFolder="/public_html/zbaaeh.ahmeds.club" host="ahmeds.club" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

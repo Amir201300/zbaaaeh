@@ -36,24 +36,11 @@ class User extends Authenticatable
     ];
 
 
-    public function my_wishlist()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function addresses()
     {
-        return $this->belongsToMany('App\Models\Products','whishlists','user_id','product_id');
-    }
-
-    public function my_cart()
-    {
-        return $this->belongsToMany('App\Models\Products','carts','user_id','product_id')
-            ->withPivot('color_id','size_id','quantity');
-    }
-
-    public function orders()
-    {
-        return $this->hasMany('App\Models\Order','user_id');
-    }
-
-
-    public function adresses(){
         return $this->hasMany(User_addresses::class,'user_id');
     }
 }

@@ -37,6 +37,16 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/change_lang', 'UserController@change_lang');
     });
 
+    /** Address Routes */
+    Route::prefix('Address')->group(function()
+    {
+        Route::post('/create', 'AddressController@create');
+        Route::post('/update', 'AddressController@update');
+        Route::post('/delete', 'AddressController@delete');
+        Route::get('/all', 'AddressController@all');
+        Route::get('/single', 'AddressController@single');
+    });
+
 });
 /** End Auth Route **/
 
