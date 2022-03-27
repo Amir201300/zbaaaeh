@@ -16,8 +16,10 @@ class CreateCartsTable extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->tinyInteger('is_order')->nullable();
+            $table->tinyInteger('type')->nullable();
+            $table->string('without')->nullable();
             $table->integer('quantity')->nullable();
-            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('order_id')->nullable();
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->unsignedBigInteger('cut_method_id');
             $table->foreign('cut_method_id')->references('id')->on('cut_methods')->onDelete('cascade');
@@ -27,7 +29,9 @@ class CreateCartsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->string('total');
+            $table->double('productPrice',10,2)->nullable();
+            $table->double('methodsPrice',10,2)->nullable();
+            $table->double('totalPrice',10,2)->nullable();
             $table->timestamps();
         });
     }

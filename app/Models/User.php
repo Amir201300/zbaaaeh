@@ -15,26 +15,6 @@ class User extends Authenticatable
 
     use HasApiTokens, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-
-
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -42,5 +22,12 @@ class User extends Authenticatable
     public function addresses()
     {
         return $this->hasMany(User_addresses::class,'user_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function myWishlist(){
+        return $this->belongsToMany(Products::class,'wishlists','user_id','product_id');
     }
 }

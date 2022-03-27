@@ -20,19 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b976970-bb70-4be8-a2f1-db9a239bb7fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/GeneralController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/CategoryResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/MethodsResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/SliderResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Slider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2022_03_26_123514_create_sliders_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CartController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/FavouriteController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ProductController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/CartResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/ProductCollection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/ProductImageResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ProductResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_24_152812_create_cut_methods_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_24_152812_create_cut_methods_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_24_152827_create_pack_methods_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_24_152827_create_pack_methods_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_25_145949_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_25_145949_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_25_175254_create_product_pack_methods_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_25_175254_create_product_pack_methods_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_25_153310_create_carts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_25_153310_create_carts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_03_25_154306_create_wishlists_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_03_25_154306_create_wishlists_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,14 +220,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\projects\freelance\zdae7\app\Http\Resources" />
       <recent name="D:\projects\freelance\zdae7\app\Http\Controllers\Api" />
+      <recent name="D:\projects\freelance\zdae7\app\Http\Resources" />
       <recent name="D:\projects\freelance\zdae7\resources\views" />
       <recent name="D:\projects\freelance\zdae7\database\migrations" />
     </key>
@@ -256,7 +256,7 @@
       <workItem from="1648232432690" duration="1368000" />
       <workItem from="1648234260167" duration="973000" />
       <workItem from="1648370536635" duration="41000" />
-      <workItem from="1648375273575" duration="736000" />
+      <workItem from="1648375273575" duration="6114000" />
     </task>
     <servers />
   </component>

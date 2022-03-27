@@ -15,8 +15,14 @@ class ProductResource extends JsonResource
     public function toArray($request)
     {
         $lang=$request->header('lang');
+        $is_fav=false;
+        $user = auth('api')->user();
+        if ($user) {
+            $is_fav = $this->usersFavourite->contains($user->id);
+        }
         return [
             'id' => $this->id,
+            'is_fav' => $is_fav,
             'weight' => $this->weight,
             'age' => $this->age,
             'price' => priceFormat($this->price),
@@ -24,6 +30,7 @@ class ProductResource extends JsonResource
             'icon' => getImageUrl('Product',$this->icon),
             'cuttingMethods' => MethodsResource::collection($this->products_cuts),
             'packagesMethods' => MethodsResource::collection($this->products_packs),
+            'images' => ProductImageResource::collection($this->images),
         ];
     }
 }

@@ -47,6 +47,22 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/single', 'AddressController@single');
     });
 
+
+    /** Favourite */
+    Route::prefix('Favourite')->group(function()
+    {
+        Route::post('/addOrRemove', 'FavouriteController@addOrRemove');
+        Route::get('/myFavourite', 'FavouriteController@myFavourite');
+    });
+
+    /** Favourite */
+    Route::prefix('Cart')->group(function()
+    {
+        Route::post('/addToCart', 'CartController@addToCart');
+        Route::get('/myCart', 'CartController@myCart');
+    });
+
+
 });
 /** End Auth Route **/
 
@@ -62,4 +78,11 @@ Route::prefix('Auth_general')->group(function()
 Route::prefix('General')->group(function()
 {
     Route::get('/home', 'GeneralController@home');
+});
+
+/** Product Route */
+Route::prefix('Product')->group(function()
+{
+    Route::get('/products', 'ProductController@products');
+    Route::get('/singleProduct', 'ProductController@singleProduct');
 });

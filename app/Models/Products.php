@@ -37,6 +37,14 @@ class Products extends Model
     public function products_packs()
     {
         return $this->belongsToMany(Pack_method::class,'product_pack_methods','product_id','pack_method_id')
-            ->withPivot('price');;
+            ->withPivot('price');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function usersFavourite(){
+        return $this->belongsToMany(User::class,'wishlists','product_id','user_id');
+
     }
 }
