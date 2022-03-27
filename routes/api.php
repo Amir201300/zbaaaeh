@@ -57,3 +57,9 @@ Route::prefix('Auth_general')->group(function()
     Route::post('/login', 'UserController@login');
     Route::post('/forget_password', 'UserController@forget_password');
 });
+
+/** General Route */
+Route::prefix('General')->group(function()
+{
+    Route::get('/home', 'GeneralController@home');
+});

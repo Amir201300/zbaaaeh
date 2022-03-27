@@ -15,7 +15,8 @@ class CreateCutMethodsTable extends Migration
     {
         Schema::create('cut_methods', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->nullable();
+            $table->string('name_ar')->nullable();
+            $table->string('name_en')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePackMethodsTable extends Migration
+class CreateSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreatePackMethodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pack_methods', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name_ar')->nullable();
-            $table->string('name_en')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
@@ -29,6 +27,6 @@ class CreatePackMethodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pack_methods');
+        Schema::dropIfExists('sliders');
     }
 }

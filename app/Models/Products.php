@@ -27,7 +27,8 @@ class Products extends Model
      */
     public function products_cuts()
     {
-        return $this->belongsToMany(Cut_method::class,'product_cut_methods','product_id','cut_method_id');
+        return $this->belongsToMany(Cut_method::class,'product_cut_methods','product_id','cut_method_id')
+            ->withPivot('price');
     }
 
     /**
@@ -35,6 +36,7 @@ class Products extends Model
      */
     public function products_packs()
     {
-        return $this->belongsToMany(Pack_method::class,'product_pack_methods','product_id','pack_method_id');
+        return $this->belongsToMany(Pack_method::class,'product_pack_methods','product_id','pack_method_id')
+            ->withPivot('price');;
     }
 }

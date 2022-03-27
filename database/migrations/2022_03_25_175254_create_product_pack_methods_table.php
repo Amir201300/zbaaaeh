@@ -17,7 +17,7 @@ class CreateProductPackMethodsTable extends Migration
             $table->bigIncrements('id');
             $table->string('price')->nullable();
             $table->unsignedBigInteger('pack_method_id');
-            $table->foreign('pack_method_id')->references('id')->on('cut_methods')->onDelete('cascade');
+            $table->foreign('pack_method_id')->references('id')->on('pack_methods')->onDelete('cascade');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
