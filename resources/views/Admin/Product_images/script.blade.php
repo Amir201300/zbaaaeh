@@ -23,13 +23,12 @@
 
         buttons: ['copy', 'excel', 'pdf'],
 
-        ajax: "{{ route('Product_images.allData')}}",
+        ajax: "{{ route('Product_images.allData',['product_id'=>$product_id])}}",
 
         columns: [
             {data: 'checkBox', name: 'checkBox'},
             {data: 'id', name: 'id'},
             {data: 'image', name: 'image'},
-            {data: 'product_id', name: 'product_id'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
@@ -38,38 +37,6 @@
         e.preventDefault();
         saveOrUpdate( save_method == 'add' ?"{{ route('Product_images.create') }}" : "{{ route('Product_images.update') }}");
     });
-
-
-    function editFunction(id) {
-
-        save_method = 'edit';
-
-        $('#err').slideUp(200);
-
-        $('#loadEdit_' + id).css({'display': ''});
-
-        $.ajax({
-            url: "/Admin/Product_images/edit/" + id,
-            type: "GET",
-            dataType: "JSON",
-
-            success: function (data) {
-
-                $('#loadEdit_' + id).css({'display': 'none'});
-
-                $('#save').text('تعديل');
-
-                $('#titleOfModel').text('تعديل القسم');
-
-                $('#formSubmit')[0].reset();
-
-                $('#formModel').modal();
-
-                $('#product_id').val(data.product_id);
-                $('#id').val(data.id);
-            }
-        });
-    }
 
 
     function deleteFunction(id,type) {

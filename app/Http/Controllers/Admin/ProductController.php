@@ -136,6 +136,7 @@ class ProductController extends Controller
         return Datatables::of($data)->addColumn('action', function ($data) {
             $options = '<td class="sorting_1"><button  class="btn btn-info waves-effect btn-circle waves-light" onclick="editFunction(' . $data->id . ')" type="button" ><i class="fa fa-spinner fa-spin" id="loadEdit_' . $data->id . '" style="display:none"></i><i class="sl-icon-wrench"></i></button>';
             $options .= ' <button type="button" onclick="deleteFunction(' . $data->id . ',1)" class="btn btn-dribbble waves-effect btn-circle waves-light"><i class="sl-icon-trash"></i> </button></td>';
+            $options .= ' <a title="صور المنتج" href="'.route("Product_images.index",['product_id'=>$data->id]).'" class="btn btn-success waves-effect btn-circle waves-light"><i class="icon-File-TextImage"></i> </a></td>';
             return $options;
         })->addColumn('checkBox', function ($data) {
             $checkBox = '<td class="sorting_1">' .

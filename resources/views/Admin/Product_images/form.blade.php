@@ -19,22 +19,11 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>المنتج</label>
-                                <select class="custom-select col-12" id="product_id" onchange="getCat()" name="product_id" >
-                                    <option value="">اختر المنتج </option>
-                                    @foreach($Products as $row)
-                                        <option value="{{$row->id}}"> {{$row->name_ar}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <div id="err"></div>
                 <input type="hidden" name="id" id="id">
+                <input type="hidden" name="product_id" id="product_id" value="{{$product_id}}">
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"  data-dismiss="modal">اغلاق</button>
                     <button type="submit" id="save" class="btn btn-success"><i class="ti-save"></i> حفظ</button>

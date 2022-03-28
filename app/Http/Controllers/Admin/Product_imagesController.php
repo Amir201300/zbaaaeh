@@ -22,7 +22,7 @@ class Product_imagesController extends Controller
      */
     public function allData(Request $request)
     {
-        $data = Product_images::get();
+        $data = Product_images::where('product_id',$request->product_id)->get();
         return $this->mainFunction($data);
     }
 
@@ -31,13 +31,13 @@ class Product_imagesController extends Controller
      */
     public function index(Request $request)
     {
-        $Products = Products::all();
-        return view('Admin.Product_images.index',compact('Products'));
+        $product_id = $request->product_id;
+        return view('Admin.Product_images.index',compact('product_id'));
     }
 
-    /**
+    /***
      * @param Request $request
-     * @return int
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
      */
     public function create(Request $request)
@@ -120,7 +120,7 @@ class Product_imagesController extends Controller
         $Product_images->delete();
     }
 
-    /**
+    /***
      * @param $data
      * @return mixed
      * @throws \Exception
@@ -128,8 +128,7 @@ class Product_imagesController extends Controller
     private function mainFunction($data)
     {
         return Datatables::of($data)->addColumn('action', function ($data) {
-            $options = '<td class="sorting_1"><button  class="btn btn-info waves-effect btn-circle waves-light" onclick="editFunction(' . $data->id . ')" type="button" ><i class="fa fa-spinner fa-spin" id="loadEdit_' . $data->id . '" style="display:none"></i><i class="sl-icon-wrench"></i></button>';
-            $options .= ' <button type="button" onclick="deleteFunction(' . $data->id . ',1)" class="btn btn-dribbble waves-effect btn-circle waves-light"><i class="sl-icon-trash"></i> </button></td>';
+            $options = ' <button type="button" onclick="deleteFunction(' . $data->id . ',1)" class="btn btn-dribbble waves-effect btn-circle waves-light"><i class="sl-icon-trash"></i> </button></td>';
             return $options;
         })->addColumn('checkBox', function ($data) {
             $checkBox = '<td class="sorting_1">' .
@@ -142,8 +141,6 @@ class Product_imagesController extends Controller
                 .'<img  src="'. getImageUrl('Product_images',$data->image) . '" width="50px" height="50px"></a>';
             return $icon;
 
-        })->editColumn('product_id', function ($data) {
-            return $data->Pro_image->name_ar;
         })->rawColumns(['action' => 'action','image' => 'image','checkBox'=>'checkBox'])->make(true);
     }
 }
