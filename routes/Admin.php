@@ -25,24 +25,22 @@ Route::prefix('Admin')->group(function () {
             Route::get('/edit/{id}', 'CategoryController@edit')->name('Category.edit');
             Route::post('/update', 'CategoryController@update')->name('Category.update');
             Route::get('/destroy/{id}', 'CategoryController@destroy')->name('Category.destroy');
-            Route::get('/ChangeStatus/{id}', 'CategoryController@ChangeStatus')->name('Category.ChangeStatus');
         });
 
         // Color Routes
-        Route::prefix('Color')->group(function () {
-            Route::get('/index', 'ColorController@index')->name('Color.index');
-            Route::get('/allData', 'ColorController@allData')->name('Color.allData');
-            Route::post('/create', 'ColorController@create')->name('Color.create');
-            Route::get('/edit/{id}', 'ColorController@edit')->name('Color.edit');
-            Route::post('/update', 'ColorController@update')->name('Color.update');
-            Route::get('/destroy/{id}', 'ColorController@destroy')->name('Color.destroy');
+        Route::prefix('Product_images')->group(function () {
+            Route::get('/index', 'Product_imagesController@index')->name('Product_images.index');
+            Route::get('/allData', 'Product_imagesController@allData')->name('Product_images.allData');
+            Route::post('/create', 'Product_imagesController@create')->name('Product_images.create');
+            Route::get('/edit/{id}', 'Product_imagesController@edit')->name('Product_images.edit');
+            Route::post('/update', 'Product_imagesController@update')->name('Product_images.update');
+            Route::get('/destroy/{id}', 'Product_imagesController@destroy')->name('Product_images.destroy');
         });
 
         // Product Routes
         Route::prefix('Product')->group(function () {
             Route::get('/index', 'ProductController@index')->name('Product.index');
             Route::get('/allData', 'ProductController@allData')->name('Product.allData');
-            Route::get('/createForm', 'ProductController@createForm')->name('Product.createForm');
             Route::post('/create', 'ProductController@create')->name('Product.create');
             Route::get('/edit/{id}', 'ProductController@edit')->name('Product.edit');
             Route::post('/update', 'ProductController@update')->name('Product.update');

@@ -50,12 +50,28 @@
 
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link  waves-effect waves-dark" href="{{route('Contract.index')}}"
+                        <a class="sidebar-link  waves-effect waves-dark" href="{{route('Category.index')}}"
                            aria-expanded="false">
                             <i class="icon-Font-Color"></i>
-                            <span class="hide-menu">العقود</span>
+                            <span class="hide-menu">الاقسام</span>
                         </a>
                     </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Product.index')}}"
+                       aria-expanded="false">
+                        <i class="icon-Font-Color"></i>
+                        <span class="hide-menu">المنتجات</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Product_images.index')}}"
+                       aria-expanded="false">
+                        <i class="icon-Font-Color"></i>
+                        <span class="hide-menu">صور المنتجات</span>
+                    </a>
+                </li>
 
 
             <!--end main routes section-->
