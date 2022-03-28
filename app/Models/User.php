@@ -30,4 +30,12 @@ class User extends Authenticatable
     public function myWishlist(){
         return $this->belongsToMany(Products::class,'wishlists','user_id','product_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function myCart(){
+        return $this->hasMany(Cart::class,'user_id')
+            ->where('is_order',2);
+    }
 }

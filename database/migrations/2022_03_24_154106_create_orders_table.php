@@ -15,13 +15,15 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('order_num')->nullable();
-            $table->string('payment_method')->nullable();
-            $table->string('discount')->nullable();
-            $table->string('product_price')->nullable();
+            $table->unsignedBigInteger('code_id')->nullable();
+            $table->string('paymentType')->nullable();
+            $table->double('discountPrice',10,2)->nullable();
+            $table->double('productPrice',10,2)->nullable();
+            $table->double('taxPrice',10,2)->nullable();
+            $table->double('shippingPrice',10,2)->nullable();
+            $table->double('totalPrice',10,2)->nullable();
             $table->tinyInteger('status')->nullable();
-            $table->tinyInteger('tracking_status')->nullable();
-            $table->unsignedBigInteger('address_id');
+            $table->unsignedBigInteger('address_id')->nullable();
             $table->foreign('address_id')->references('id')->on('user_addresses')->onDelete('cascade');
             $table->string('total')->nullable();
             $table->timestamps();

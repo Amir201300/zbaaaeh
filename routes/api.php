@@ -60,7 +60,18 @@ Route::middleware('auth:api')->group(function () {
     {
         Route::post('/addToCart', 'CartController@addToCart');
         Route::get('/myCart', 'CartController@myCart');
+        Route::post('/removeFromCart', 'CartController@removeFromCart');
     });
+
+    /** Order Routes */
+    Route::prefix('OrderUser')->group(function () {
+        Route::post('/makeOrder', 'OrderController@makeOrder');
+        Route::post('/applyDiscount', 'OrderController@applyDiscount');
+        Route::post('/removeCode', 'OrderController@removeCode');
+        Route::get('/myOrders', 'OrderController@myOrders');
+        Route::get('/singleOrder', 'OrderController@singleOrder');
+    });
+
 
 
 });
@@ -78,6 +89,7 @@ Route::prefix('Auth_general')->group(function()
 Route::prefix('General')->group(function()
 {
     Route::get('/home', 'GeneralController@home');
+    Route::get('/setting', 'GeneralController@setting');
 });
 
 /** Product Route */

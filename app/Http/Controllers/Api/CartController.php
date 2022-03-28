@@ -95,8 +95,27 @@ class CartController extends Controller
             ->firstOrFail();
         $pack=Product_pack_method::where('product_id',$request->product_id)->where('pack_method_id',$request->pack_method_id)
             ->firstOrFail();
-
     }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function myCart(){
+        $data=['cart'=>CartResource::collection(Auth::user()->myCart),'totalPrice'=>Auth::user()->myCart->sum('totalPrice')];
+        return $this->apiResponseData($data,'',200);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function removeFromCart(Request $request){
+        $cart=Cart::where('id',$request->cart_id)->where('is_order',2)->firstOrFail();
+        $cart->delete();
+        $msg=$request->header('lang') =='ar' ? 'تم حذف المنتج بنجاح' : 'product deleted successfully';
+        return $this->apiResponseMessage(1,$msg);
+    }
+
 
 }
 

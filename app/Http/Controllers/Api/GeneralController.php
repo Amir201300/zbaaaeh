@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Resources\AddressResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\SettingResource;
 use App\Http\Resources\SliderResource;
 use App\Interfaces\UserInterface;
 use App\Models\Categories;
 use App\Models\Products;
+use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\User_addresses;
 use Illuminate\Http\Request;
@@ -33,6 +35,14 @@ class GeneralController extends Controller
             'products'=>ProductResource::collection($products)
         ];
         return $this->apiResponseData($data,'');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function setting(){
+        $setting=Setting::first();
+        return $this->apiResponseData(new SettingResource($setting),'');
     }
 
 
