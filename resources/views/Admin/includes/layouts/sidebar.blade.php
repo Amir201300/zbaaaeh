@@ -93,8 +93,16 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link  waves-effect waves-dark" href="{{route('Setting.index')}}"
                        aria-expanded="false">
-                        <i class="icon-Font-Color"></i>
+                        <i class="fa-cog"></i>
                         <span class="hide-menu">الاعدادات </span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('User.index')}}"
+                       aria-expanded="false">
+                        <i class="fa-cog"></i>
+                        <span class="hide-menu">الأعضاء </span>
                     </a>
                 </li>
 

@@ -88,6 +88,14 @@ Route::prefix('Admin')->group(function () {
             Route::get('/edit/{id}', 'SettingController@edit')->name('Setting.edit');
             Route::post('/update', 'SettingController@update')->name('Setting.update');
         });
+
+        /** User */
+        Route::prefix('User')->group(function () {
+            Route::get('/index', 'UserController@index')->name('User.index');
+            Route::get('/allData', 'UserController@allData')->name('User.allData');
+            Route::get('/destroy/{id}', 'UserController@destroy')->name('User.destroy');
+            Route::get('/show/{id}', 'UserController@show')->name('User.show');
+        });
     });
 });
 
