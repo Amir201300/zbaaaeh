@@ -73,6 +73,38 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Cut_method.index')}}"
+                       aria-expanded="false">
+                        <i class="icon-Font-Color"></i>
+                        <span class="hide-menu">طرق التقطيع</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Pack_method.index')}}"
+                       aria-expanded="false">
+                        <i class="icon-Font-Color"></i>
+                        <span class="hide-menu">طرق التغليف</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Slider.index')}}"
+                       aria-expanded="false">
+                        <i class="icon-Font-Color"></i>
+                        <span class="hide-menu">صور السلايدر</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Setting.index')}}"
+                       aria-expanded="false">
+                        <i class="icon-Font-Color"></i>
+                        <span class="hide-menu">الاعدادات </span>
+                    </a>
+                </li>
+
 
             <!--end main routes section-->
 
